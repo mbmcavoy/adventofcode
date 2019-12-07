@@ -1,0 +1,1 @@
+These are my solutions for the puzzles at adventofcode.com
