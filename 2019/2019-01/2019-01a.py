@@ -5,7 +5,7 @@ def fuel_for_mass( mass ):
 
 total_fuel = 0
 
-input_file = open("2019/aoc1/input.txt")
+input_file = open("2019/2019-01/input.txt")
 
 for line in input_file:
     module_mass = int(line)

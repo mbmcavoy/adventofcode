@@ -78,7 +78,7 @@ class WireSegment:
 def main():
     centralPort = point(0,0)
 
-    input_file = open("2019/aoc3/input.txt")
+    input_file = open("2019/2019-03/input.txt")
 
     # Build Wire 1
     wire1 = []

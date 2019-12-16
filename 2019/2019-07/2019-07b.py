@@ -4,7 +4,7 @@ def main():
 
     # Test getParamMode
 
-    input_file = open("2019/aoc7/input.txt")
+    input_file = open("2019/2019-07/input.txt")
 
     program_string = input_file.readline()
     program = [int(value) for value in program_string.split(",")]

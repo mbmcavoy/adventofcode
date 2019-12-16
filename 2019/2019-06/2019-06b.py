@@ -17,11 +17,23 @@ class orbitingObject:
         else:
             return self.orbits.getOrbitCount() + 1
 
+    def getOrbitPath(self):
+        path = []
+        if self.orbits is not None:
+            self.orbits.searchOrbitPath(path)
+        return path
+
+    def searchOrbitPath(self, path):
+        path.append(self)
+        if self.orbits is not None:
+            self.orbits.searchOrbitPath(path)
+        return path
+
 
 def main():
     orbitObjects = {}
     
-    with open("2019/aoc6/input.txt") as input_file:
+    with open("2019/2019-06/input.txt") as input_file:
         lines = input_file.readlines()
 
     for line in lines:
@@ -60,6 +72,25 @@ def main():
         orbitCount += orbitObject.getOrbitCount()
 
     print(f"Orbit Count Checksum: {orbitCount}")
+
+    YOU = orbitObjects["YOU"]
+    pathYOU = YOU.getOrbitPath()
+    print(f"YOU are {len(pathYOU)} objects from COM")
+
+    SAN = orbitObjects["SAN"]
+    pathSAN = SAN.getOrbitPath()
+    print(f"SAN is {len(pathYOU)} objects from COM")
+    
+    transfers = -100    # Obvious error value
+
+    for orbitObject in pathYOU:
+        if orbitObject in pathSAN:
+            # Found a common object
+            transfers = pathYOU.index(orbitObject) + pathSAN.index(orbitObject)
+            break
+
+    print(f"You need {transfers} orbital transfers to get to Santa.")
+
 
 # Execute the program
 if __name__ == "__main__":
