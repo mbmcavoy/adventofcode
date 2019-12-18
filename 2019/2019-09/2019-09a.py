@@ -10,7 +10,8 @@ def main():
     program = [int(value) for value in program_string.split(",")]
 
     computer = intcode(program)
-    computer.inputBuffer = [1]
+    # computer.inputBuffer = [1]  # Use for Part 1
+    computer.inputBuffer = [2]  # Use for Part 2
     computer.execute()
 
     print(f"Computer is in state {computer.state}.")
